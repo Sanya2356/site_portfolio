@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Портфолио</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #000000;
+      color: #ffffff;
+    }
+
+    h2, h3 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .portfolio-scroll {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 40px 0;
+      gap: 30px;
+      scroll-snap-type: x mandatory;
+    }
+
+    .portfolio-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .portfolio-item {
+      flex: 0 0 auto;
+      width: 400px;
+      scroll-snap-align: center;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      text-align: center;
+      opacity: 0.6;
+      transform: scale(0.85);
+    }
+
+    .portfolio-item.active {
+      transform: scale(1.15);
+      opacity: 1;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+        footer.footer {
+          background-color: #222;
+          color: #fff;
+          padding: 5px 0;
+          font-size: 16px;
+        }
+      
+        footer .footer .container {
+          max-width: 400px;
+          margin: 0 auto;
+          padding: 0 20px;
+        }
+      
+        footer .footer-content {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+        }
+      
+        footer .footer p {
+          margin: 0;
+          font-size: 14px;
+        }
+      
+        footer .footer-nav {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          gap: 20px;
+        }
+      
+        footer .footer-nav li {
+          margin: 0;
+        }
+      
+        footer .footer-nav a {
+          color: #fff;
+          text-decoration: none;
+          font-size: 16px;
+          transition: color 0.3s ease;
+        }
+      
+        footer .footer-nav a:hover {
+          color: #e00034;
+        }
+      
+        footer .footer-nav a:active {
+          color: #e00034;
+        }
+      
+        @media (max-width: 200px) {
+          footer .footer-content {
+            flex-direction: column;
+            text-align: center;
+          }
+      
+          footer .footer-nav {
+            margin-top: 20px;
+            justify-content: center;
+          }
+      
+          footer .footer-nav li {
+            margin-bottom: 10px;
+          }
+        }
+      
+  </style>
+</head>
+<body>
+
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <h2>Мои Работы</h2>
+
+      <!-- Раздел: Лендинги -->
+      <h3>Лендинги</h3>
+      <div class="portfolio-scroll" id="landing-scroll">
+        <div class="portfolio-item">
+          <img src="img/landing1.png" alt="Лендинг для IT-компании">
+          <p>Современный лендинг для IT-стартапа</p>
+        </div>
+        <div class="portfolio-item">
+          <img src="img/landing2.png" alt="Лендинг для частной больницы">
+          <p>Инновационный дизайн для частной больницы</p>
+        </div>
+        <div class="portfolio-item">
+          <img src="img/landing3.png" alt="Лендинг для магазина мебели">
+          <p>Продающий лендинг для онлайн магазина мебели</p>
+        </div>
+      </div>
+
+      <!-- Раздел: Логотипы -->
+      <h3>Логотипы</h3>
+      <div style="overflow: hidden;">
+        <div class="portfolio-scroll" id="logo-scroll">
+          <div class="portfolio-item">
+            <img src="img/logo-design-icon.jpg" alt="Логотип бренда IT-компании">
+            <p>Логотип бренда IT-компании</p>
+          </div>
+          <div class="portfolio-item">
+            <img src="img/logo2.jpg" alt="Логотип отеля Lucsury">
+            <p>Аутентичный стиль для уютного отеля</p>
+          </div>
+          <div class="portfolio-item">
+            <img src="img/logo3.jpg" alt="Логотип экологической компании">
+            <p>Эко-ориентированный логотип для технологического стартапа</p>
+          </div>
+          <div class="portfolio-item">
+            <img src="img/logo4.jpg" alt="Логотип для кафе The Urban Cafe">
+            <p>Логотип для компании Star Energy</p>
+          </div>
+          <div class="portfolio-item">
+            <img src="img/logo5.jpg" alt="Логотип для спортивного клуба ProFit">
+            <p>Современный логотип для клуба читателей</p>
+          </div>
+          <div class="portfolio-item">
+            <img src="img/logo6.jpg" alt="Логотип для стартапа GreenTech">
+            <p>Мой личный логотип</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p>&copy; 2025 Все права защищены</p>
+        <ul class="footer-nav">
+          <li><a href="index.html">Главная</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function setupScrollEffect(scrollId) {
+      const scrollContainer = document.getElementById(scrollId);
+      const items = scrollContainer.querySelectorAll('.portfolio-item');
+  
+      scrollContainer.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        scrollContainer.scrollLeft += e.deltaY; // Убираем зависимость от горизонтального скролла
+      }, { passive: false });
+  
+      function updateActiveItem() {
+        const containerRect = scrollContainer.getBoundingClientRect();
+        const center = containerRect.left + containerRect.width / 2;  // Центр контейнера
+  
+        let closestItem = null;
+        let closestDistance = Infinity;
+  
+        items.forEach(item => {
+          const itemRect = item.getBoundingClientRect();
+          const itemCenter = itemRect.left + itemRect.width / 2;  // Центр каждой карточки
+          const distance = Math.abs(center - itemCenter);  // Вычисляем расстояние от центра контейнера до карточки
+  
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestItem = item;
+          }
+        });
+  
+        // Очищаем активные карточки
+        items.forEach(item => item.classList.remove('active'));
+  
+        // Добавляем класс активной карточке
+        if (closestItem) closestItem.classList.add('active');
+      }
+  
+      // При прокрутке скролим горизонтально
+      scrollContainer.addEventListener('scroll', () => {
+        requestAnimationFrame(updateActiveItem);
+      });
+  
+      // В момент загрузки сразу активируем центральную карточку
+      window.addEventListener('load', updateActiveItem);
+      window.addEventListener('resize', updateActiveItem);
+    }
+  
+    // Применяем скрипт к блоку с логотипами
+    setupScrollEffect('logo-scroll');
+    
+    // Применяем скрипт ко всем остальным скроллимым элементам
+    setupScrollEffect('landing-scroll');
+  </script>
+</body>
+</html>

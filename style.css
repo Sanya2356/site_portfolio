@@ -1,0 +1,316 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+
+  header {
+    width: 100%;
+    padding: 20px 0;
+    background-color: #111; /* тёмный фон для контраста */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  nav a:hover {
+    color: #e00034;
+  }
+  
+
+
+
+
+  
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('img/banner.gif') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+  
+  .hero .container {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero .sub {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  
+  .price-info {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  
+  .price {
+    font-weight: bold;
+    color: hsl(0, 0%, 100%);
+  }
+  
+  .duration {
+    font-weight: bold;
+    color: #ee90a9;
+  }
+  
+  .button {
+    background-color: #000000;
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 20px;
+    border: 2px solid #e00034; /* добавлено: ширина + стиль + цвет */
+    font-size: 1rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #e0003f;
+  }
+  
+
+
+
+ 
+ 
+ 
+  .services {
+    padding: 50px 0;
+    background-color: #000000;
+    text-align: center;
+    color: #fff; /* Белый текст по умолчанию */
+  }
+  
+  .services h2 {
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #fff; /* Белый заголовок */
+  }
+  
+  .services-scroll-wrapper {
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .services-scroll {
+    display: flex;
+    gap: 40px;
+    padding: 20px 0;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 50%;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Скрываем нативную полосу прокрутки */
+  .services-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  .services-scroll {
+    -ms-overflow-style: none; /* IE и Edge */
+    scrollbar-width: none;    /* Firefox */
+  }
+  
+  .service-item {
+    flex: 0 0 auto;
+    width: 400px;
+    scroll-snap-align: center;
+    text-align: center;
+    transition: transform 0.3s ease;
+    transform: scale(0.9);
+  }
+  
+  .service-item.active {
+    transform: scale(1.2);
+  }
+  
+  .service-item img {
+    width: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+    height: 200px;
+  }
+  
+  .service-item p {
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #fff; /* Белый текст под изображением */
+  }
+  
+
+
+  .form {
+    background-color: #000;
+    padding: 60px 0;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .form h2 {
+    margin-bottom: 30px;
+    font-size: 2rem;
+  }
+  
+  .form form {
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form input,
+  .form select {
+    padding: 15px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #1a1a1a;
+    color: #fff;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .form input::placeholder {
+    color: #888;
+  }
+  
+  .form input:focus,
+  .form select:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  }
+  
+  .form select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 12px;
+  }
+  
+  .form button {
+    padding: 15px 20px;
+    font-size: 1rem;
+    background-color: #e00034;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .form button:hover {
+    background-color: #c3002c;
+  }
+
+  
+
+  .footer {
+    background-color: #0a0a0a;
+    padding: 30px 0;
+    color: #fff;
+    font-size: 0.9rem;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  .footer-content p {
+    margin: 0;
+  }
+  
+  .footer-nav {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-nav a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-nav a:hover {
+    color: #e00034;
+  }
+  
+  @media (max-width: 600px) {
+    .footer-content {
+      flex-direction: column;
+      text-align: center;
+      gap: 15px;
+    }
+  }
+
+  
+
+
+
